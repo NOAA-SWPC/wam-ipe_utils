@@ -61,7 +61,7 @@ echo " .... Building cycle .... "
 #------------------------------------
 $Build_hdr && {
 echo " .... Building hdr .... "
-./build_hdr.sh > $logs_dir/build_cycle.log 2>&1
+./build_hdr.sh > $logs_dir/build_hdr.log 2>&1
 }
 
 #------------------------------------
@@ -69,7 +69,7 @@ echo " .... Building hdr .... "
 #------------------------------------
 $Build_chg && {
 echo " .... Building chg .... "
-./build_chg.sh > $logs_dir/build_cycle.log 2>&1
+./build_chg.sh > $logs_dir/build_chg.log 2>&1
 }
 
 echo;echo " .... Build system finished .... "

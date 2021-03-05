@@ -37,9 +37,9 @@ module load nemsiogfs/2.0.1
 module load gfsio/1.1.0
 
 # modules used by vrfy
-module load pm5
+module load pm5/1.0
 
 module use -a /gpfs/dell1/nco/ops/nwprod/modulefiles/
 module load gempak/7.3.1
 
-export FCMP=ifort
+setenv FCMP ifort

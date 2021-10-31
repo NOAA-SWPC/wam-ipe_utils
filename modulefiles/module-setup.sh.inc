@@ -57,6 +57,9 @@ elif [[ -L /usrx && "$( readlink /usrx 2> /dev/null )" =~ dell ]] ; then
 	source /usrx/local/prod/lmod/lmod/init/$__ms_shell
     fi
     module purge
+elif [[ -d /lfs/h1 ]] ; then
+    # We are on NOAA WCOSS2
+    module purge
 elif [[ -d /glade ]] ; then
     # We are on NCAR Yellowstone
     if ( ! eval module help > /dev/null 2>&1 ) ; then

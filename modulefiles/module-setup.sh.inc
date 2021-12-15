@@ -61,7 +61,7 @@ elif [[ -d /lfs/h1 ]] ; then
     # We are on NOAA WCOSS2
     module purge
 elif [[ -d /glade ]] ; then
-    # We are on NCAR Yellowstone
+    # We are on NCAR Cheyenne
     if ( ! eval module help > /dev/null 2>&1 ) ; then
         . /usr/share/Modules/init/$__ms_shell
     fi

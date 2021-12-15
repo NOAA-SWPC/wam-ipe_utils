@@ -9,18 +9,8 @@ module purge
 USE_PREINST_LIBS=${USE_PREINST_LIBS:-"true"}
 if [ $USE_PREINST_LIBS = true ]; then
   export MOD_PATH
-  if [ $target = wcoss2 ] ; then
-    source ../modulefiles/module_base.$target
-    export SIGIO_INC4=$SIGIO_INC
-    export SIGIO_LIB4=$SIGIO_LIB
-    export SFCIO_INC4=$SFCIO_INC
-    export SFCIO_LIB4=$SFCIO_LIB
-    export GFSIO_INC4=$GFSIO_INC
-    export GFSIO_LIB4=$GFSIO_LIB
-  else
-    module use ../modulefiles
-    module load module_base.$target             > /dev/null 2>&1
-  fi
+  module use ../modulefiles
+  module load module_base.$target             > /dev/null 2>&1
 else
   export MOD_PATH=${cwd}/lib/modulefiles
   if [ $target = wcoss_cray ]; then

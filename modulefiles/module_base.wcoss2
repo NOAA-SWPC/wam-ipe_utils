@@ -2,32 +2,32 @@
 ##
 ##      FV3GFS prerequisites
 
-module load envvar/$envvar_ver
-module load PrgEnv-intel/$PrgEnv_intel_ver
-module load craype/$craype_ver
-module load intel/$intel_ver
-module load cray-mpich/$cray_mpich_ver
-module load cray-libsci/$cray_libsci_ver
+module load envvar/$env(envvar_ver)
+module load PrgEnv-intel/$env(PrgEnv_intel_ver)
+module load craype/$env(craype_ver)
+module load intel/$env(intel_ver)
+module load cray-mpich/$env(cray_mpich_ver)
+module load cray-libsci/$env(cray_libsci_ver)
 
-module load netcdf/$netcdf_ver
-module load crtm/$crtm_ver
-module load prod_util/$prod_util_ver
-module load prod_envir/$prod_envir_ver
-module load esmf/$esmf_ver
+module load netcdf/$env(netcdf_ver)
+module load crtm/$env(crtm_ver)
+module load prod_util/$env(prod_util_ver)
+module load prod_envir/$env(prod_envir_ver)
+module load esmf/$env(esmf_ver)
 
-module load bacio/$bacio_ver
-module load sp/$sp_ver
-module load w3nco/$w3nco_ver
-module load w3emc/$w3emc_ver
-module load nemsio/$nemsio_ver
-module load sigio/$sigio_ver
-module load landsfcutil/$landsfcutil_ver
-module load ip/$ip_ver
-module load sfcio/$sfcio_ver
-module load gfsio/$gfsio_ver
-module load nemsiogfs/$nemsiogfs_ver
+module load bacio/$env(bacio_ver)
+module load sp/$env(sp_ver)
+module load w3nco/$env(w3nco_ver)
+module load w3emc/$env(w3emc_ver)
+module load nemsio/$env(nemsio_ver)
+module load sigio/$env(sigio_ver)
+module load landsfcutil/$env(landsfcutil_ver)
+module load ip/$env(ip_ver)
+module load sfcio/$env(sfcio_ver)
+module load gfsio/$env(gfsio_ver)
+module load nemsiogfs/$env(nemsiogfs_ver)
 
-module load gempak/$gempak_ver
-module load libjpeg/$libjpeg_ver
-module load grib_util/$grib_util_ver
-export FCMP=ftn
+module load gempak/$env(gempak_ver)
+module load libjpeg/$env(libjpeg_ver)
+module load grib_util/$env(grib_util_ver)
+setenv FCMP ftn

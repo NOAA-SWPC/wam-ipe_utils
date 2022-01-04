@@ -81,7 +81,7 @@ elif [[ -L /usrx && "$( readlink /usrx 2> /dev/null )" =~ dell ]] ; then
     module purge 
 elif [[ -d /lfs/h1 ]] ; then
     target=wcoss2
-    module purge
+    module reset
 elif [[ -d /dcom && -d /hwrf ]] ; then
     # We are on NOAA Tide or Gyre
     if ( ! eval module help > /dev/null 2>&1 ) ; then

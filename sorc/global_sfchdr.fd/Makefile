@@ -1,5 +1,5 @@
 SHELL	=/bin/sh
-INCMOD	= $(SFCIO_INC4)
+INCMOD	= $(SFCIO_INC)
 INSTALL = ../../exec
 SRCM	= sfchdr.f
 INCM	=
@@ -10,7 +10,7 @@ FC	= ifort
 #FFLAGS	=-qnosave -O2   -qmaxmem=-1
 FFLAGS  = -O2 -xHOST -convert big_endian -traceback -g -FR
 LDFLAGS	=   
-LIBS    = $(SFCIO_LIB4) $(BACIO_LIB4) $(W3NCO_LIB4)
+LIBS    = $(SFCIO_LIB) $(BACIO_LIB4) $(W3NCO_LIB4)
 CMD	=global_sfchdr
 $(CMD):	$(SRCM) $(OBJS)
 	$(FC) -I $(INCMOD) $(FFLAGS) $(LDFLAGS) $(SRCM) $(OBJS) $(LIBS) -o $(CMD)

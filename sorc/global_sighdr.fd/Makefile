@@ -1,5 +1,5 @@
 SHELL   =/bin/sh
-INCMOD  = $(SIGIO_INC4)
+INCMOD  = $(SIGIO_INC)
 INSTALL = ../../exec
 SRCM    =sighdr.f
 INCM    =
@@ -8,7 +8,7 @@ OBJS    =
 MODS    =
 FC      = ifort
 LDFLAGS =
-LIBS    = $(SIGIO_LIB4) $(BACIO_LIB4) $(W3NCO_LIB4)
+LIBS    = $(SIGIO_LIB) $(BACIO_LIB4) $(W3NCO_LIB4)
 CMD     =global_sighdr
 FFLAGS  = -O2 -xHOST -convert big_endian -traceback -g -FR
 $(CMD): $(SRCM) $(OBJS)

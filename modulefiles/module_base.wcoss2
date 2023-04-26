@@ -14,7 +14,6 @@ module load esmf/$env(esmf_ver)
 
 module load bacio/$env(bacio_ver)
 module load sp/$env(sp_ver)
-module load w3nco/$env(w3nco_ver)
 module load w3emc/$env(w3emc_ver)
 module load nemsio/$env(nemsio_ver)
 module load sigio/$env(sigio_ver)

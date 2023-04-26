@@ -7,6 +7,9 @@ cwd=`pwd`
 USE_PREINST_LIBS=${USE_PREINST_LIBS:-"true"}
 if [ $USE_PREINST_LIBS = true ]; then
   export MOD_PATH
+  if [ $target = wcoss2 ]; then
+    module reset
+  fi
   module use ../modulefiles
   module load module_base.$target             > /dev/null 2>&1
 else

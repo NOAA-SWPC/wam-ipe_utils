@@ -41,14 +41,6 @@ echo " .... Building NEMS util .... "
 }
 
 #------------------------------------
-# build chgres
-#------------------------------------
-$Build_chgres && {
-echo " .... Building chgres .... "
-./build_chgres.sh > $logs_dir/build_chgres.log 2>&1
-}
-
-#------------------------------------
 # build cycle
 #------------------------------------
 $Build_cycle && {

@@ -1,6 +1,10 @@
 #! /usr/bin/env bash
 set -eux
 
+target=${1:-"all"}
+
+if [ $target = "all" ] ; then
+
 source ./machine-setup.sh > /dev/null 2>&1
 cwd=`pwd`
 
@@ -27,5 +31,13 @@ if [ ! -d "../exec" ]; then
   mkdir ../exec
 fi
 
-cd ${cwd}/global_cycle.fd
-./makefile.sh
+fi
+
+if [ $target != "install" ] ; then
+
+cd global_cycle.fd
+./makefile.sh $target
+
+else
+echo "nothing to do"
+fi

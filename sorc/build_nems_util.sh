@@ -1,6 +1,10 @@
 #!/bin/sh
 set -eux
 
+target=${1:-"all"}
+
+if [ $target = "all" ] ; then
+
 source ./machine-setup.sh > /dev/null 2>&1
 cwd=`pwd`
 
@@ -30,5 +34,14 @@ for prog in nemsio_get.fd ;do
  cd ${cwd}/${prog}
  make -f makefile
 done
+
+elif [ $target = "clean" ] ; then
+
+cd nemsio_get.fd
+make clean
+
+elif [ $target = "install" ] ; then
+  echo "nothing to do"
+fi
 
 exit

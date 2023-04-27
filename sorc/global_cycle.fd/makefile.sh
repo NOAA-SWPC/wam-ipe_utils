@@ -1,6 +1,8 @@
 #!/bin/bash
 set -x
+target=${1:-"all"}
 
+if [ $target != "clean" ] ; then
 #-----------------------------------------------------
 #-use standard module.
 #-----------------------------------------------------
@@ -21,7 +23,9 @@ export LIBSM="${NEMSIOGFS_LIB} \
               ${BACIO_LIB4} \
               ${SP_LIBd} "
 
-make -f Makefile clean
 make -f Makefile
 make -f Makefile install
+
+else
 make -f Makefile clean
+fi

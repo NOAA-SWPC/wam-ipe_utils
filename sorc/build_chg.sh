@@ -1,6 +1,10 @@
 #! /usr/bin/env bash
 set -eux
 
+target=${1:-"all"}
+
+if [ $target = "all" ] ; then
+
 source ./machine-setup.sh > /dev/null 2>&1
 cwd=`pwd`
 
@@ -29,9 +33,19 @@ fi
 
 for dir in chgsfcfhr.fd chgsigfhr.fd ; do
   cd $dir
-  make clean
   make
   make install
+  cd ..
+done
+
+elif [ $target = "clean" ] ; then
+
+for dir in chgsfcfhr.fd chgsigfhr.fd ; do
+  cd $dir
   make clean
   cd ..
 done
+
+elif [ $target = "install" ]; then
+  echo "nothing to do"
+fi

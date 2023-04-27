@@ -1,6 +1,10 @@
 #! /usr/bin/env bash
 set -eux
 
+target=${1:-"all"}
+
+if [ $target = "all" ] ; then
+
 source ./machine-setup.sh > /dev/null 2>&1
 cwd=`pwd`
 
@@ -29,9 +33,20 @@ fi
 
 for dir in global_sighdr.fd global_sfchdr.fd ; do
   cd $dir
-  make clobber
   make
   make install
   make clobber
   cd ..
 done
+
+elif [ $target = "clean" ] ; then
+
+for dir in global_sighdr.fd global_sfchdr.fd ; do
+  cd $dir
+  make clobber
+  cd ..
+done
+
+elif [ $target = "install" ] ; then
+  echo "nothing to do"
+fi

@@ -1,17 +1,16 @@
 #!/bin/sh
 set -eu
 #------------------------------------
-# USER DEFINED STUFF:
-#
-# USE_PREINST_LIBS: set to "true" to use preinstalled libraries.
-#                   Anything other than "true"  will use libraries locally.
+# Exception handling is now included.
 #------------------------------------
 
-export USE_PREINST_LIBS="true"
+target=${1:-"all"}
 
-#------------------------------------
-# END USER DEFINED STUFF
-#------------------------------------
+if [ $target = "install" ] ; then
+
+exit $?
+
+fi
 
 build_dir=`pwd`
 logs_dir=$build_dir/logs
@@ -27,42 +26,30 @@ if [ ! -d "../exec" ]; then
 fi
 
 #------------------------------------
-# INCLUDE PARTIAL BUILD
-#------------------------------------
-
-. ./partial_build.sh
-
-#------------------------------------
 # build NEMS util
 #------------------------------------
-$Build_nems_util && {
-echo " .... Building NEMS util .... "
-./build_nems_util.sh > $logs_dir/build_NEMS.log 2>&1
-}
-
+echo " .... Executing ./build_nems_util.sh $target .... "
+./build_nems_util.sh $target > $logs_dir/build_NEMS_$target.log 2>&1
 #------------------------------------
 # build cycle
 #------------------------------------
-$Build_cycle && {
-echo " .... Building cycle .... "
-./build_cycle.sh > $logs_dir/build_cycle.log 2>&1
-}
-
+echo " .... Executing ./build_cycle.sh $target .... "
+./build_cycle.sh $target > $logs_dir/build_cycle_$target.log 2>&1
 #------------------------------------
 # build hdr
 #------------------------------------
-$Build_hdr && {
-echo " .... Building hdr .... "
-./build_hdr.sh > $logs_dir/build_hdr.log 2>&1
-}
-
+echo " .... Executing ./build_hdr.sh $target .... "
+./build_hdr.sh $target > $logs_dir/build_hdr_$target.log 2>&1
 #------------------------------------
 # build chg
 #------------------------------------
-$Build_chg && {
-echo " .... Building chg .... "
-./build_chg.sh > $logs_dir/build_chg.log 2>&1
-}
+echo " .... Executing ./build_chg.sh $target .... "
+./build_chg.sh $target > $logs_dir/build_chg_$target.log 2>&1
+
+# extra cleanup
+if [ $target = "clean" ] ; then
+  rm -f ../exec/*
+fi
 
 echo;echo " .... Build system finished .... "
 

@@ -8,7 +8,7 @@ OBJS    =
 MODS    =
 FC      = ifort
 LDFLAGS =
-LIBS    = $(SIGIO_LIB) $(BACIO_LIB4) $(W3NCO_LIB4)
+LIBS    = $(SIGIO_LIB) $(BACIO_LIB4) $(W3EMC_LIB4)
 CMD     =global_sighdr
 FFLAGS  = -O2 -xHOST -convert big_endian -traceback -g -FR
 $(CMD): $(SRCM) $(OBJS)

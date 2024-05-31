@@ -19,7 +19,7 @@ export LIBSM="${NEMSIOGFS_LIB} \
               ${NEMSIO_LIB} \
               ${W3EMC_LIBd} \
               ${SFCIO_LIB} \
-              ${W3NCO_LIBd} \
+              ${W3EMC_LIBd} \
               ${BACIO_LIB4} \
               ${SP_LIBd} "
 
